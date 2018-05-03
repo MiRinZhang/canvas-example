@@ -1,13 +1,8 @@
 export default class Clock {
-    constructor (id, config = {
-        fontHeight: 15, // 时间刻度字体大小
-        margin: 35, // canvas离容器的距离
-        numeralSpacing: 20, // 时间刻度之间的间隔
-        fontFamily: 'Arial', // 文字字体
-    }) {
-        const { margin, numeralSpacing, fontHeight, fontFamily } = config,
+    constructor (id, config = {}) {
+        const { margin = 35, numeralSpacing = 20, fontHeight = 15, fontFamily = 'Arial' } = config,
             canvas = document.getElementById(id);
-        
+      
         this.canvas = canvas;
         this.ctx = canvas.getContext('2d');
         this.fontHeight = fontHeight;
