@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rubber</title>
+    <style>
+        body {
+            background: rgba(206, 206, 206, 0.3);
+        }
+
+        #resetBtn {
+            display: block;
+            margin: 20px;
+        }
+
+        #canvas {
+            margin-left: 20px;
+            margin-right: 0;
+            margin-bottom: 20px;
+            border: thin solid #aaaaaa;
+            cursor: crosshair;
+            padding: 0;
+        }
+
+        #rubberHandDiv {
+            position: absolute;
+            border: 2px solid yellow;
+            cursor: crosshair;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <button id='resetBtn'>Reset</button>
+    <div id='rubberHandDiv'></div>
+    <canvas id='canvas' width='800' height='520'></canvas>
+</div>
+<script src="../dist/bundle.js"></script>
+<script>
+    new draw.Rubber('canvas', 'rubberHandDiv', 'resetBtn', './assets/01.png');
+</script>
+</body>
+</html>
