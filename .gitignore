@@ -3,3 +3,4 @@ node_modules/
 dist/
 *-error.log
 .idea
+examples/temp.*
