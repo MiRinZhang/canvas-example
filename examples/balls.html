@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Balls</title>
+    <style>
+        body {
+            background: #dddddd;
+            text-align: center;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        #canvas {
+            margin-left: 10px;
+            margin-top: 10px;
+            background: #ffffff;
+            border: thin solid #aaaaaa;
+        }
+
+        #start {
+            position: absolute;
+            left: 25px;
+            top: 25px;
+            text-decoration: none;
+            color: #cccccc;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        #start:hover {
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a id='start'>Start</a>
+    <canvas id='canvas' width='700' height='500'></canvas>
+</div>
+<script src="../dist/bundle.js"></script>
+<script>
+    new draw.Balls('canvas', { actionId: 'start', girdColor: '#f9f9ff' });
+</script>
+</body>
+</html>
