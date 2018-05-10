@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>patterns</title>
+    <style>
+        #canvas {
+            margin-top: 20px;
+            border: 1px solid #E1E1E1;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div>
+        <span>Patterns:</span>
+        <select name="patterns" id="patterns">
+            <option value="repeat" selected>repeat</option>
+            <option value="repeat-x">repeat-x</option>
+            <option value="repeat-y">repeat-y</option>
+            <option value="no-repeat">no-repeat</option>
+        </select>
+    </div>
+    <canvas id="canvas" width="450" height="275"></canvas>
+    <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/createPattern"
+          target="_blank">Document</a></p>
+</div>
+<script>
+    (function () {
+        var canvas = document.getElementById('canvas'),
+            ctx = canvas.getContext('2d'),
+            patterns = document.getElementById('patterns'),
+            image = new Image();
+
+        image.src = './assets/ball.png';
+
+        patterns.addEventListener('change', function (e) {
+            fillCanvasWithPattern(e.target.value);
+        });
+
+        function fillCanvasWithPattern(repeatString) {
+            var pattern = ctx.createPattern(image, repeatString);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = pattern;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fill();
+        }
+
+        window.onload = function () {
+            fillCanvasWithPattern(patterns.value);
+        }
+    })();
+</script>
+</body>
+</html>
